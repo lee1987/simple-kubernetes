@@ -1,0 +1,27 @@
+{
+  "clusters": [
+    {
+      "nodes": [
+      {% for host in groups['all'] %}
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "{{ hostvars[host]['ansible_default_ipv4']['address'] }}"
+              ],
+              "storage": [
+                "{{ hostvars[host]['ansible_default_ipv4']['address'] }}"
+              ]
+            },
+            "zone": {{ loop.index }}
+          },
+          "devices": [
+            "/dev/vdc"
+          ]
+        }
+        {% if not loop.last %},{% endif %}
+      {% endfor %}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Ensures docker dir exists
+      file: path=/var/lib/docker state=directory
+
+    - name: create the 'kube' user
+      user: name=kube append=yes state=present createhome=yes shell=/bin/bash
+
+    - name: allow 'kube' to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        line: 'kube ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: set up authorized keys for the kube user
+      authorized_key: user=kube key="{{item}}"
+      with_file:
+        - ~/.ssh/id_rsa.pub
+
+    - name: Generate RSA host key
+      command: ssh-keygen -q -t rsa -f /root/.ssh/ssh_host_rsa_key -C "" -N ""
+      args:
+        creates: /root/.ssh/ssh_host_rsa_key

@@ -1,0 +1,56 @@
+{
+  "clusters": [
+    {
+      "nodes": [
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "46.101.94.183"
+              ],
+              "storage": [
+                "46.101.94.183"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sda"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "178.62.29.160"
+              ],
+              "storage": [
+                "178.62.29.160"
+              ]
+            },
+            "zone": 2
+          },
+          "devices": [
+            "/dev/sda"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "178.62.43.196"
+              ],
+              "storage": [
+                "178.62.43.196"
+              ]
+            },
+            "zone": 3
+          },
+          "devices": [
+            "/dev/sda"
+          ]
+        }
+      ]
+    }
+  ]
+}
