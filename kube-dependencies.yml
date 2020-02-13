@@ -25,13 +25,13 @@
 
    - name: install kubelet
      apt:
-       name: kubelet
+       name: kubelet={{kubelet}}
        state: present
        update_cache: true
 
    - name: install kubeadm
      apt:
-       name: kubeadm
+       name: kubeadm={{kubeadm}}
        state: present
 
    - name: disable swap
