@@ -2,7 +2,7 @@
 - [Intro](#intro)
 - [Installation Prerequisites](#installation-prerequisites)
 - [Installation Guide for Kubernetes Cluster](#installation-guide-for-kubernetes-cluster)
-   - [Pre-configured your host file](#pre-configured-your-host-file)
+   - [Pre-configured your settings](#pre-configured-your-settings)
    - [Deployment](#deployment)
    - [Configure your Kubectl](#configure-your-kubectl)
    - [Verify the Installation](#verify-the-installation)
@@ -32,17 +32,17 @@ There are a few important prerequisites which should be prepared, the list below
 
 This installation guide assumes a macOS, and assuming you have a working GlusterFS cluster installed (and can be reached to/from the Kubernetes Cluster).
 
-## Pre-configured your host file.
+## Pre-configured your settings
 
-Update your ansible’s inventory, which defaults to being saved in the location **./hosts**. You can specify a different inventory file using the **-i path** option on the command line.
+Update your ansible’s inventory, which defaults to being saved in the location **./settings.ini**. You can specify a different inventory file using the **-i path** option on the command line.
 
 ## Deployment:
 
 ```sh
-ansible-playbook -i hosts ./initial.yml
-ansible-playbook -i hosts ./kube-dependencies.yml
-ansible-playbook -i hosts ./master.yml
-ansible-playbook -i hosts ./workers.yml
+ansible-playbook -i settings.ini ./initial.yml
+ansible-playbook -i settings.ini ./kube-dependencies.yml
+ansible-playbook -i settings.ini ./master.yml
+ansible-playbook -i settings.ini ./workers.yml
 ```
 
 ### Configure your Kubectl
