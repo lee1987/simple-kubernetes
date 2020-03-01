@@ -40,6 +40,11 @@
    - name: enable docker
      command: systemctl enable docker.service
 
+   - name: install glusterfs client
+     apt:
+       name: glusterfs-client
+       state: present
+
 - hosts: master
   become: yes
   tasks:
